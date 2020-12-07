@@ -9,6 +9,8 @@ class MessageController extends Controller
 {
 
     public function conversation($userId) {
+
+        //git the id fetch the data
         $users = User::where('id', '!=', Auth::id())->get();
 
         $friendInfo = User::findOrFail($userId);
