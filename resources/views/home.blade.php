@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+
             <div class="row chat-row">
                 <div class="col-md-3">
                     <div class="users">
@@ -28,23 +28,48 @@
                             @endif
                         </ul>
                     </div>
+                </div>
                     <div class="col-md-9">
                         <h1>
                             Message Section
                         </h1>
 
-                        <p class="lead">
-                            Select user from the list to begin conversation.
-                        </p>
+
                     </div>
+
                 </div>
-                </div>
-            </div>
+
 
         </div>
     </div>
 </div>
 @endsection
 
+@push('scripts')
+ 
+    
+    <script>
+
+
+        
+        $(function () {
+
+            let user_id = "{{ auth()->user()->id }}";
+            let ip_address = '127.0.0.1';
+            let socket_port = '8005';
+            let socket = io(ip_address + ':' + socket_port);
+            alert('before fuck');
+            socket.on('connect', function() {
+                //alert('fuck');
+
+
+                socket.emit('user_connected', user_id);
+            });
+
+            
+        });
+    </script>
+    
+@endpush
 
 
