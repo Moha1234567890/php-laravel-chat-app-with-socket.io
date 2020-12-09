@@ -4,6 +4,7 @@ var io = require('socket.io')(http);
 
 http.listen(8005, function() {
     console.log('listing to port 8000 now');
+    //alert('suck');
 });
 
 

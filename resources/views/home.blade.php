@@ -46,6 +46,12 @@
 @endsection
 
 @push('scripts')
+    <?php
+
+    header('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+    header('Access-Control-Allow-Headers', 'Content-Type, X-Auth-Token, Origin, Authorization');
+   header('Access-Control-Allow-Headers: Origin, X-Requested-With,Authorization, XMLHttpRequest, Content-Type, Accept');
+    ?>
  
     
     <script>
@@ -58,7 +64,7 @@
             let ip_address = '127.0.0.1';
             let socket_port = '8005';
             let socket = io(ip_address + ':' + socket_port);
-            alert('before fuck');
+            //alert('before fuck');
             socket.on('connect', function() {
                 //alert('fuck');
 
